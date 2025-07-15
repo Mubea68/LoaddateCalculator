@@ -9,6 +9,7 @@
   height: 100%;
   margin: 0;
 }
+/*<img src="C:\Users\Mallika\Documents\Mallika\newproj\logo.png" alt="Company Logo" style="max-width: 200px; height: auto; display: block; margin: 20px auto;">*/
 
 body {
   display: flex;
@@ -32,31 +33,31 @@ body {
 
 </head>
 <body>
-  <div class="container">
+
+    <div class="container">
 
   <h2>LOAD DATE CALCULATOR</h2>
 
+  <label for="type">Type:</label>
+  <select id="type">
+    <option value="">-- Select Type --</option>
+    <option value="Raw Material">Raw Material</option>
+    <option value="Hardware">Hardware</option>
+  </select>
+  <br></br>
+
   <label for="vendor">Vendor:</label>
-  <select id="vendor">
+  <select id="vendor" disabled>
     <option value="">-- Select Vendor --</option>
   </select>
 <br><br>
 
   <label for="country">Country:</label>
-  <select id="country">
+  <select id="country" disabled>
     <option value="">-- Select Country --</option>
   </select>
 
   <br><br>
-
-<label for="itemType">Item Type:</label>
-<select id="itemType">
-  <option value="">-- Select Type --</option>
-  <option value="raw">Raw Material</option>
-  <option value="hardware">Hardware</option>
-</select>
-
-<br><br>
 
 <label for="loadDate">AX Load Date:</label>
 <input type="date" id="loadDate">
@@ -68,85 +69,134 @@ body {
 <div id="finalResult"></div>
 </div>
 
-  <script>
-    let vendorData = [];
 
-    // Load vendor list from JSON
+  <script>
+    let vendorCountries = {};
+
+    const typeSelect = document.getElementById("type");
+    const vendorSelect = document.getElementById("vendor");
+    const countrySelect = document.getElementById("country");
+    const calculateBtn = document.getElementById("calculateBtn");
+    const finalResult = document.getElementById("finalResult");
+
+    // Load vendors JSON
     fetch('vendor.json')
       .then(response => response.json())
       .then(data => {
-        vendorData = data;
-
-        const vendorSelect = document.getElementById("vendor");
-        const countrySelect = document.getElementById("country");
-
-        // Populate vendor dropdown
-        vendorData.forEach(vendor => {
-          const option = document.createElement("option");
-          option.value = vendor.name;
-          option.textContent = vendor.name;
-          vendorSelect.appendChild(option);
-        });
-
-        // When a vendor is selected, update countries
-        vendorSelect.addEventListener("change", function () {
-          const selectedVendorName = this.value;
-
-          // Clear previous country options
-          countrySelect.innerHTML = '<option value="">-- Select Country --</option>';
-
-          // Find the selected vendor
-          const selectedVendor = vendorData.find(v => v.name === selectedVendorName);
-
-          if (selectedVendor && selectedVendor.countries) {
-            selectedVendor.countries.forEach(country => {
-              const option = document.createElement("option");
-              option.value = country;
-              option.textContent = country;
-              countrySelect.appendChild(option);
-            });
-          }
-        });
+        vendorCountries = data;
+        populateVendors();
       })
-      .catch(error => {
-        console.error("❌ Failed to load vendors.json:", error);
-        alert("Could not load vendors. See console for error.");
+      .catch(err => {
+        console.error('Error loading vendors:', err);
+        finalResult.textContent = 'Failed to load vendor data.';
       });
-     
-      document.getElementById("calculateBtn").addEventListener("click", function () {
-    const country = document.getElementById("country").value;
-    const itemType = document.getElementById("itemType").value;
-    const loadDateStr = document.getElementById("loadDate").value;
 
-    const resultDiv = document.getElementById("finalResult"); // <--- This line must be here!
-
-  resultDiv.innerHTML = "";
-
-   if (!country || !itemType || !loadDateStr) {
-    resultDiv.innerHTML = "Please select a country, item type, and load date.";
-    return;
-  }
-
-  if (country === "Canada") {
-    resultDiv.innerHTML = "No delivery calculation rule for Canada.";
-    return;
-  }
-
-  const loadDate = new Date(loadDateStr);
-  let weeksToAdd = 0;
-
-  if (country === "USA") {
-    weeksToAdd = itemType === "raw" ? 4 : 6;
-  } else {
-    weeksToAdd = itemType === "raw" ? 6 : 8;
-  }
-
-
-   const newDate = new Date(loadDate);
-  newDate.setDate(newDate.getDate() + weeksToAdd * 7);
-
-  resultDiv.innerHTML = "New Estimated Load Date: " + newDate.toDateString();
+    function populateVendors() {
+  vendorSelect.innerHTML = '<option value="">-- Select Vendor --</option>';
+  vendorCountries.forEach(vendorObj => {
+    const option = document.createElement('option');
+    option.value = vendorObj.name;          // vendor name as value
+    option.textContent = vendorObj.name;    // vendor name as visible text
+    vendorSelect.appendChild(option);
   });
+}
+
+    // Enable/disable vendor & country based on type selection
+    typeSelect.addEventListener("change", () => {
+      finalResult.textContent = "";
+      if (typeSelect.value === "Hardware") {
+        vendorSelect.disabled = true;
+        countrySelect.disabled = true;
+        vendorSelect.value = "";
+        countrySelect.innerHTML = '<option value="">-- Select Country --</option>';
+      } else if (typeSelect.value === "Raw Material") {
+        vendorSelect.disabled = false;
+        countrySelect.disabled = true; // country enabled after vendor selected
+        vendorSelect.value = "";
+        countrySelect.innerHTML = '<option value="">-- Select Country --</option>';
+      } else {
+        vendorSelect.disabled = true;
+        countrySelect.disabled = true;
+        vendorSelect.value = "";
+        countrySelect.innerHTML = '<option value="">-- Select Country --</option>';
+      }
+    });
+
+    // Populate countries after vendor selected (only if Raw Material)
+    vendorSelect.addEventListener("change", () => {
+  finalResult.textContent = "";
+  const vendor = vendorSelect.value;
+  countrySelect.innerHTML = '<option value="">-- Select Country --</option>';
+
+  if (!vendor) {
+    countrySelect.disabled = true;
+    return;
+  }
+
+  // Find the vendor object from the array
+  const vendorObj = vendorCountries.find(v => v.name === vendor);
+
+  if (vendorObj && vendorObj.countries) {
+    vendorObj.countries.forEach(country => {
+      const option = document.createElement("option");
+      option.value = country;
+      option.textContent = country;
+      countrySelect.appendChild(option);
+    });
+    countrySelect.disabled = false;
+  } else {
+    countrySelect.disabled = true;
+  }
+});
+
+    calculateBtn.addEventListener("click", () => {
+      finalResult.textContent = "";
+
+      const type = typeSelect.value;
+      const vendor = vendorSelect.value;
+      const country = countrySelect.value;
+      const currentLoadDateStr = document.getElementById("loadDate").value;
+
+      if (!type) {
+        finalResult.textContent = "Please select a Type.";
+        return;
+      }
+
+      if (type === "Raw Material") {
+        if (!vendor) {
+          finalResult.textContent = "Please select a Vendor.";
+          return;
+        }
+        if (!country) {
+          finalResult.textContent = "Please select a Country.";
+          return;
+        }
+      }
+
+      if (!currentLoadDateStr) {
+        finalResult.textContent = "Please select the Current Load Date.";
+        return;
+      }
+
+      const currentLoadDate = new Date(currentLoadDateStr);
+      let weeksToAdd = 0;
+
+      if (type === "Hardware") {
+        weeksToAdd = 4;
+      } else if (type === "Raw Material") {
+        if (country === "USA" || country === "Canada") {
+          weeksToAdd = 4;
+        } else {
+          weeksToAdd = 6;
+        }
+      }
+
+      const newDate = new Date(currentLoadDate);
+      newDate.setDate(newDate.getDate() - weeksToAdd * 7);
+
+      const formattedDate = newDate.toISOString().split("T")[0];
+      finalResult.textContent = "New Load Date: " + formattedDate;
+    });
 
   </script>
 </body>
