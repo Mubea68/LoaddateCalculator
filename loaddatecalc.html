@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vendor Selector</title>
+
+  <style>
+
+    html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;  /* optional, light background */
+}
+
+.container {
+  background: rgb(183, 193, 228);
+  padding: 40px 60px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 1000px; /* fix width */
+  height: 500px;
+  box-sizing: border-box;
+}
+
+  </style>
+
+</head>
+<body>
+  <div class="container">
+
+  <h2>LOAD DATE CALCULATOR</h2>
+
+  <label for="vendor">Vendor:</label>
+  <select id="vendor">
+    <option value="">-- Select Vendor --</option>
+  </select>
+<br><br>
+
+  <label for="country">Country:</label>
+  <select id="country">
+    <option value="">-- Select Country --</option>
+  </select>
+
+  <br><br>
+
+<label for="itemType">Item Type:</label>
+<select id="itemType">
+  <option value="">-- Select Type --</option>
+  <option value="raw">Raw Material</option>
+  <option value="hardware">Hardware</option>
+</select>
+
+<br><br>
+
+<label for="loadDate">AX Load Date:</label>
+<input type="date" id="loadDate">
+
+<br><br>
+<button id="calculateBtn">Calculate New Date</button>
+
+<br><br>
+<div id="finalResult"></div>
+</div>
+
+  <script>
+    let vendorData = [];
+
+    // Load vendor list from JSON
+    fetch('vendor.json')
+      .then(response => response.json())
+      .then(data => {
+        vendorData = data;
+
+        const vendorSelect = document.getElementById("vendor");
+        const countrySelect = document.getElementById("country");
+
+        // Populate vendor dropdown
+        vendorData.forEach(vendor => {
+          const option = document.createElement("option");
+          option.value = vendor.name;
+          option.textContent = vendor.name;
+          vendorSelect.appendChild(option);
+        });
+
+        // When a vendor is selected, update countries
+        vendorSelect.addEventListener("change", function () {
+          const selectedVendorName = this.value;
+
+          // Clear previous country options
+          countrySelect.innerHTML = '<option value="">-- Select Country --</option>';
+
+          // Find the selected vendor
+          const selectedVendor = vendorData.find(v => v.name === selectedVendorName);
+
+          if (selectedVendor && selectedVendor.countries) {
+            selectedVendor.countries.forEach(country => {
+              const option = document.createElement("option");
+              option.value = country;
+              option.textContent = country;
+              countrySelect.appendChild(option);
+            });
+          }
+        });
+      })
+      .catch(error => {
+        console.error("❌ Failed to load vendors.json:", error);
+        alert("Could not load vendors. See console for error.");
+      });
+     
+      document.getElementById("calculateBtn").addEventListener("click", function () {
+    const country = document.getElementById("country").value;
+    const itemType = document.getElementById("itemType").value;
+    const loadDateStr = document.getElementById("loadDate").value;
+
+    const resultDiv = document.getElementById("finalResult"); // <--- This line must be here!
+
+  resultDiv.innerHTML = "";
+
+   if (!country || !itemType || !loadDateStr) {
+    resultDiv.innerHTML = "Please select a country, item type, and load date.";
+    return;
+  }
+
+  if (country === "Canada") {
+    resultDiv.innerHTML = "No delivery calculation rule for Canada.";
+    return;
+  }
+
+  const loadDate = new Date(loadDateStr);
+  let weeksToAdd = 0;
+
+  if (country === "USA") {
+    weeksToAdd = itemType === "raw" ? 4 : 6;
+  } else {
+    weeksToAdd = itemType === "raw" ? 6 : 8;
+  }
+
+
+   const newDate = new Date(loadDate);
+  newDate.setDate(newDate.getDate() + weeksToAdd * 7);
+
+  resultDiv.innerHTML = "New Estimated Load Date: " + newDate.toDateString();
+  });
+
+  </script>
+</body>
+</html>

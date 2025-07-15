@@ -1,0 +1,426 @@
+[
+  {
+    "name": "ADAMSRITE",
+    "countries": ["USA"]
+  },
+  {
+    "name": "ADEPT",
+    "countries": ["USA"]
+  },
+  {
+    "name": "AEARO",
+    "countries": ["USA"]
+  },
+  {
+    "name": "AERO METAL",
+    "countries": ["USA"]
+  },
+  {
+    "name": "AERO NEGOCE INT",
+    "countries": ["FRANCE"]
+  },
+  {
+    "name": "AEROTECHNICAL COMPONENTS",
+    "countries": ["USA"]
+  },
+{
+    "name": "AEROMETALS & ALLOYS",
+    "countries": ["FRANCE"]
+  },
+  {
+    "name": "AIDCUS",
+    "countries": ["USA", "TAIWAN"]
+  },
+  {
+    "name": "AIRBUS",
+    "countries": ["UK","FRANCE"]
+  },
+{
+    "name": "ALA NORTHAMERICA",
+    "countries": ["USA"]
+  },
+  {
+    "name": "ALA UK",
+    "countries": ["UK"]
+  },
+  {
+    "name": "ALIGN",
+    "countries": ["USA"]
+  },
+{
+    "name": "ALINE",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "ALLMETAL",
+    "countries": ["UK"]
+  },
+  {
+    "name": "ALPHACAST",
+    "countries": ["CANADA"]
+  },
+{
+    "name": "ALRO STEEL",
+    "countries": ["USA"]
+  },
+{
+    "name": "AMAG",
+    "countries": ["AUSTRIA"]
+  },
+  {
+    "name": "AMI",
+    "countries": ["USA", "BELGIUM"]
+  },
+  {
+    "name": "AMPHENOL CIT",
+    "countries": ["USA"]
+  },
+ {
+    "name": "ANILO",
+    "countries": ["USA"]
+  },
+  {
+    "name": "ARGUS",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "ARLINGTON",
+    "countries": ["USA"]
+  },
+ {
+    "name": "ASA",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "ASM",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "ATC",
+    "countries": ["USA"]
+  },
+ {
+    "name": "ATI_EUROPE",
+    "countries": ["FRANCE"]
+  },
+  {
+    "name": "AUBERT ET DUVAL",
+    "countries": ["FRANCE"]
+  },
+  {
+    "name": "AURORA1",
+    "countries": ["USA"]
+  },
+ {
+    "name": "AVCORP",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "B &S",
+    "countries": ["USA"]
+  },
+  {
+    "name": "BANDY",
+    "countries": ["USA"]
+  },
+ {
+    "name": "BAOJI TITANIUM",
+    "countries": ["CHINA"]
+  },
+  {
+    "name": "BIKAR_METALLE",
+    "countries": ["GERMANY"]
+  },
+  {
+    "name": "THE BOEING",
+    "countries": ["USA"]
+  },
+ {
+    "name": "BOEING DS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "BOHLER_CANADA",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "BOHLER_VOESTALPINE",
+    "countries": ["AUSTRIA"]
+  },
+ {
+    "name": "BOMBARDIER AEROSPACE",
+    "countries": ["MEXICO"]
+  },
+  {
+    "name": "BOYSEN",
+    "countries": ["GERMANY", "USA"]
+  },
+  {
+    "name": "BOYD_CORPORATION",
+    "countries": ["USA"]
+  },
+ {
+    "name": "BRAY METALS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "BUSBY",
+    "countries": ["USA", "CANADA"]
+  },
+  {
+    "name": "CANCARD",
+    "countries": ["CANADA"]
+  },
+ {
+    "name": "CANCOP",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "CARRLANE",
+    "countries": ["USA"]
+  },
+  {
+    "name": "CLARENDON SPECIALITY",
+    "countries": ["USA"]
+  },
+ {
+    "name": "CONSTELLIUM",
+    "countries": ["USA"]
+  },
+  {
+    "name": "DE HAVILLAND",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "EMJ",
+    "countries": ["CANADA"]
+  },
+ {
+    "name": "STERLING",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "BLUESKY INDUSTRIES",
+    "countries": ["USA"]
+  },
+  {
+    "name": "FRIEND",
+    "countries": ["USA"]
+  },
+ {
+    "name": "FRY STEEL COMPANY",
+    "countries": ["USA"]
+  },
+  {
+    "name": "FUTUREMETALS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "GOULD ALLOYS",
+    "countries": ["UK"]
+  },
+ {
+    "name": "HOBSON MANUFACTURING",
+    "countries": ["USA"]
+  },
+  {
+    "name": "ALCOAFAST",
+    "countries": ["USA", "GERMANY"]
+  },
+  {
+    "name": "KASIER",
+    "countries": ["USA"]
+  },
+ {
+    "name": "KAMATICS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "LAMSCO",
+    "countries": ["USA"]
+  },
+  {
+    "name": "LISI",
+    "countries": ["USA"]
+  },
+ {
+    "name": "LOCKHEED",
+    "countries": ["USA"]
+  },
+  {
+    "name": "MHI_CANADA",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "MIL-AERO",
+    "countries": ["USA"]
+  },
+ {
+    "name": "MUBEA AVIATION GMBH",
+    "countries": ["GERMANY"]
+  },
+  {
+    "name": "MUBEA MEXCIO",
+    "countries": ["MEXICO"]
+  },
+  {
+    "name": "NEWSOURCE",
+    "countries": ["USA"]
+  },
+ {
+    "name": "NGK METALS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "MINEBEA1",
+    "countries": ["GERMANY"]
+  },
+  {
+    "name": "ALERIS",
+    "countries": ["GERMANY"]
+  },
+ {
+    "name": "OLYMPIC",
+    "countries": ["USA"]
+  },
+  {
+    "name": "PSD_AERO",
+    "countries": ["FRANCE"]
+  },
+  {
+    "name": "PEERLESS AEROSPACE",
+    "countries": ["USA"]
+  },
+ {
+    "name": "SABIC",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "PROFESIIONAL PLASTICS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "PASU",
+    "countries": ["USA"]
+  },
+ {
+    "name": "PROPONENT",
+    "countries": ["USA"]
+  },
+  {
+    "name": "RBC TRANS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "ROLLED ALLOYS",
+    "countries": ["CANADA"]
+  },
+ {
+    "name": "SAMULE_US",
+    "countries": ["USA", "CANADA"]
+  },
+  {
+    "name": "SSA",
+    "countries": ["USA"]
+  },
+  {
+    "name": "SHIMCO",
+    "countries": ["CANADA"]
+  },
+ {
+    "name": "SHOCK TECH",
+    "countries": ["USA"]
+  },
+  {
+    "name": "SHULTZ STEEL COMPANY",
+    "countries": ["USA"]
+  },
+  {
+    "name": "SIERRA",
+    "countries": ["USA"]
+  },
+ {
+    "name": "SIGMA",
+    "countries": ["USA"]
+  },
+  {
+    "name": "SPIRIT",
+    "countries": ["USA"]
+  },
+  {
+    "name": "STAINLESS",
+    "countries": ["FRANCE"]
+  },
+ {
+    "name": "SUNSHINE",
+    "countries": ["USA"]
+  },
+  {
+    "name": "SUPERIOR HANDFORGE",
+    "countries": ["USA"]
+  },
+  {
+    "name": "SWIFT AEROSPACE",
+    "countries": ["UK"]
+  },
+ {
+    "name": "THYSSENTKA",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "THYSSENKRUP MATERIALS",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "TIMET",
+    "countries": ["USA", "FRANCE"]
+  },
+ {
+    "name": "TI",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "TRI-TECH METALS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "TRUESTEEL & CUTTING",
+    "countries": ["USA"]
+  },
+ {
+    "name": "TW METAL",
+    "countries": ["USA"]
+  },
+  {
+    "name": "UNIV-ALLOY",
+    "countries": ["USA"]
+  },
+  {
+    "name": "UNIMETAL",
+    "countries": ["USA"]
+  },
+ {
+    "name": "WSWILS",
+    "countries": ["USA"]
+  },
+  {
+    "name": "WSS",
+    "countries": ["CANADA"]
+  },
+  {
+    "name": "WEBER METALS",
+    "countries": ["USA"]
+  },
+ {
+    "name": "WENCOR",
+    "countries": ["USA"]
+  },
+  {
+    "name": "WES",
+    "countries": ["CANADA","USA"]
+  },
+  {
+    "name": "WMH",
+    "countries": ["GERMANY"]
+  }
+]

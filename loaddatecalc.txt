@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vendor Selector</title>
+</head>
+<body>
+
+  <h2>Select Vendor</h2>
+
+  <label for="vendor">Vendor:</label>
+  <select id="vendor">
+    <option value="">-- Select Vendor --</option>
+  </select>
+
+  <script>
+    // Step 2: Load vendors from JSON
+    let vendorData = [];
+
+    fetch('vendors.json')
+      .then(response => response.json())
+      .then(data => {
+        vendorData = data;
+        const vendorSelect = document.getElementById("vendor");
+
+        data.forEach(vendor => {
+          const option = document.createElement("option");
+          option.value = vendor.name;
+          option.textContent = vendor.name;
+          vendorSelect.appendChild(option);
+        });
+      })
+      .catch(error => console.error("Error loading vendors:", error));
+  </script>
+
+</body>
+</html>
